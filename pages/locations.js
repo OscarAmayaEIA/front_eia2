@@ -5,7 +5,7 @@ import Header from "../components/Header/header";
 import Sidemenu from "../components/Sidemenu/sidemenu";
 import ReactLoading from 'react-loading';
 import { FaPlusCircle } from "react-icons/fa";
-export default function locations({list_locations}) {
+export default function Locations({list_locations}) {
   console.log(list_locations);
   const [location , setLocation] = useState(list_locations.locations);
   const [name_locations, setName_Locations] = useState('');
@@ -44,7 +44,7 @@ export default function locations({list_locations}) {
       <Header />
       <Sidemenu />
       <div className={styles.body_table}>
-        <div className={styles.row_header}>
+        <div className={styles.row_header}  key={"idhd2"}>
           <div className={styles.cell_header}>ID</div>
           <div className={styles.cell_header}>User</div>
           <div className={styles.cell_header}>Name locations</div>
@@ -52,7 +52,7 @@ export default function locations({list_locations}) {
         </div>
         {location.map((location) => {
           return (
-            <div className={styles.row}>
+            <div className={styles.row} key={"idhd3"}>
               <div className={styles.cell}>{location.id}</div>
               <div className={styles.cell}>{location.user_id}</div>
               <div className={styles.cell}>{location.name_locations}</div>
@@ -60,7 +60,7 @@ export default function locations({list_locations}) {
             </div>
           );
         })}
-        <div className={styles.row}>
+        <div className={styles.row} key={"idhd4"}>
           <div className={styles.cell}>Agregar</div>
           <div className={styles.cell}>
             <input type="text" value={user_id} onChange={(event)=> setUser_id(event.target.value)}  /> 
