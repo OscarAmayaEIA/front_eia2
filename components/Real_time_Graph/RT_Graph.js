@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./graph.module.css";
+import styles from "./rt_graph.module.css";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 
 export default function Graph({data}) {
