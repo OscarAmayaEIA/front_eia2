@@ -1,12 +1,12 @@
 .sidemenu{
-    width: 100px;
-    height: 90%;
-    background-color: rgb(14, 10, 10);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
+    width: 200px;
+    background-color: #000000;
+    border-right: 1px solid #ddd;
+    height: 90%;
 }
 
 .icon{

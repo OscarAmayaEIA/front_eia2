@@ -11,6 +11,7 @@
     height: 500px;
     background-color: azure;
     border: gray 3px solid;
+    overflow-y: scroll;
   }
   .row_header{
     width: 100%;

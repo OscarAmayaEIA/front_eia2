@@ -1,28 +1,54 @@
-.main{
-  width: 100%;
-  height: 100vh;
-  background-color: #8e8282;
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  background-color: #f0f0f0;
+}
 
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.graphContainer {
+  flex-grow: 1;
+  margin-left: 20px;
 }
 .tittle {
   text-align: center;
   font-size: 22px;
-  font-weight: 700; color:#202020;
+  font-weight: 700;
+  color: #202020;
   text-transform: uppercase;
-  word-spacing: 1px; letter-spacing:2px;
+  word-spacing: 1px;
+  letter-spacing: 2px;
   position: absolute;
-  top : 200px;
+  top: 200px;
   left: 200px;
+  flex-direction: row;
 }
+
 .tittle h1 span {
   margin-top: 40px;
   text-transform: none;
-  font-size:.75em;
+  font-size: 0.75em;
   font-weight: normal;
-  font-style: italic; font-family: "Playfair Display","Bookman",serif;
-  color:#999; letter-spacing:-0.005em; word-spacing:1px;
-  letter-spacing:none;
+  font-style: italic;
+  font-family: "Playfair Display", "Bookman", serif;
+  color: #999;
+  letter-spacing: -0.005em;
+  word-spacing: 1px;
+  letter-spacing: none;
 }
+
 .tittle h1:before {
   position: absolute;
   left: 0;
