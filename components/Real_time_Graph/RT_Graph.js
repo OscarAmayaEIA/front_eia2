@@ -17,14 +17,18 @@ export default function Graph({data}) {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date_time" />
-        <YAxis />
+        <XAxis dataKey="Valores" domain={[0, 100]} />
+        <YAxis  />
   
         <Line
           type="monotone"
           dataKey="value"
           stroke="#8884d8"
           activeDot={{ r: 8 }}
+          isAnimationActive={false}
+          begin={0}
+          end={100}
+
         />
       </LineChart>
     );

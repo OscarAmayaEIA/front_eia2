@@ -6,6 +6,7 @@ import Graph from "../components/Graph/Graph";
 import RT_Graph from "../components/Real_time_Graph/RT_Graph";
 import mqtt from "mqtt";
 import React,{useState, useEffect} from "react";
+import Card from "../components/Card/Card";
 
 // var mqtt = require('mqtt')
 var options = { protocolo: 'mqtts', 
@@ -14,20 +15,21 @@ var options = { protocolo: 'mqtts',
                 password: 'B69napsxhhC1pXlW'}
 
 export default function Home({list_dots}) {
-
+var [Sensor_data, setSensor_data] = useState(0);
 const [data, setData] = useState([]);
-
 useEffect(() => {
   var client = mqtt.connect('mqtts://ejemplo-control.cloud.shiftr.io', options);
+  var cont = 0;
+  
   client.subscribe("Edfico1/salon32B/Ventana1/lumens");
   client.on("message", function (topic, message) {
-
+    cont++;
     const dot = {
-      id: data.length,
+      id: cont,
       value: parseFloat(message.toString())
     };
     setData((data)=>[...data, dot]);
-    console.log(data);
+    setSensor_data(parseFloat(message.toString()));
 
   });
 },[]);
@@ -37,8 +39,9 @@ useEffect(() => {
       <Header />
       <div className={styles.container}>
         <Sidemenu />
+        <Card value={Sensor_data}/>
         <div className={styles.graphContainer}>
-
+          
           <RT_Graph data={data}/>
         </div>
       </div>

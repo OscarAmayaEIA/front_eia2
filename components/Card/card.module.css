@@ -1,0 +1,20 @@
+.main{
+    width: 200px;;
+    height: 100px;
+    background-color: #8e8282;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px snow;
+    border-radius: 10px;
+  }
+.icon{
+    font-size: 50px;
+    color: black;
+}
+.data{
+    color: black;
+    font-size: 15px;
+    front-weight: bold;
+    text-align: center;
+}
