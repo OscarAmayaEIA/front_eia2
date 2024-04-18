@@ -1,17 +1,50 @@
-.sidemenu{
+.sidemenu {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    background-color: #333; /* Cambia el color de fondo */
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    top: 10%;
+    bottom: 0;
+    width: 60px; /* Ancho inicial cuando contraído */
+    transition: width 0.3s ease; /* Animación de transición */
+  }
+  
+  .sidemenu.expanded {
+    width: 200px; /* Ancho expandido cuando se pasa el cursor por encima */
+  }
+  
+  .icon {
+    display: flex;
     align-items: center;
-    width: 200px;
-    background-color: #000000;
-    border-right: 1px solid #ddd;
-    height: 90%;
-}
-
-.icon{
+    cursor: pointer;
     font-size: 60px;
     color: rgb(255, 255, 255);
     margin-top: 20px;
     margin-bottom: 20px;
-}
+  }
+  
+  .icon svg {
+    margin-right: 0px;
+  }
+  
+  .iconText {
+    font-size: 14px;
+    display: inline; /* Mostrar el texto solo cuando expandido */
+  }
+  
+  /* Ocultar el texto cuando el side menu está contraído */
+  .sidemenu:not(.expanded) .iconText {
+    display: none;
+  }
+  
+  
+
+
+  
+
+
+  
+
+  

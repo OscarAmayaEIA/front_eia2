@@ -7,6 +7,7 @@ import RT_Graph from "../components/Real_time_Graph/RT_Graph";
 import mqtt from "mqtt";
 import React,{useState, useEffect} from "react";
 import Card from "../components/Card/Card";
+import Estructura_pagina from "../modules/estructura";
 
 // var mqtt = require('mqtt')
 var options = { protocolo: 'mqtts', 
@@ -34,29 +35,34 @@ useEffect(() => {
   });
 },[]);
 
-  return (
-    <div className={styles.main}>
-      <Header />
-      <div className={styles.container}>
-        <Sidemenu />
-        <Card value={Sensor_data}/>
-        <div className={styles.graphContainer}>
-          
-          <RT_Graph data={data}/>
-        </div>
-      </div>
-    </div>
-  );
-}
+return (
+  <Estructura_pagina>
+    <Card value={Sensor_data} />
+    <RT_Graph data={data} />
+    {/* Otro contenido específico de la página Home */}
+  </Estructura_pagina>
+);
+};
+    
+
 
 export const getServerSideProps = async () => {
-  const apiresponse = await fetch(
-    process.env.NEXT_PUBLIC_API_URL + "/dots/5/"
-  );
-  const list_dots = await apiresponse.json();
-  return {
-    props: {
-      list_dots,
-    },
-  };
+  try {
+    const apiResponse = await fetch(
+      process.env.NEXT_PUBLIC_API_URL + "/dots/5/"
+    );
+    const list_dots = await apiResponse.json();
+    return {
+      props: {
+        list_dots: list_dots,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        list_dots: [0, 0, 0],
+      },
+    };
+  }
 };

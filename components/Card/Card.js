@@ -1,4 +1,4 @@
-import styles from "./Card.module.css";
+import styles from "./card.module.css";
 import {FaUser} from "react-icons/fa";
 import {IoIosSettings} from "react-icons/io";
 import {CiTempHigh} from "react-icons/ci";
@@ -11,3 +11,4 @@ export default function Card({ value=0}) {
         </div>
     )
 }
+    
